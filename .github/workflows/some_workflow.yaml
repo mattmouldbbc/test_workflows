@@ -1,0 +1,17 @@
+name: Workflow for development
+
+on:
+  pull_request:
+    branches: [ main, kids-main ]
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+jobs:
+  build:
+    runs-on: [self-hosted, xcode-15-2-0]
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Workflow description
+      run: echo "This workflow has a manual trigger and can be used for testing development workflows on other branches"
+
